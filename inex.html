@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="shortcut icon" href="img/icons8-barril-de-petróleo-32.png">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#inicio" class="menu-link activo">Inicio</a>
+            <a href="#descriptiva" class="menu-link">Estadistica Descriptiva</a>
+            <a href="#inferencial" class="menu-link">Estadistica Inferencial</a>
+            <a href="#machine" class="menu-link">Machine Learning</a>
+        </nav>
+        <section class="textos-header">
+            <h1>Proyecto de Estadistica</h1>
+            <h2>.</h2>
+            <h2>.</h2>
+        </section>
+    </header>
+
+    <main>
+        <section id="inicio" class="seccion visible contenedor sobre-nosotros ">
+            <h1 class="contenedor-sobre-nosotros">Proyecto De Estadistica</h1>
+            <h2>.</h2>
+            <h2>.</h2>
+            <div class="contenedor-sobre-nosotros">
+                <img class="imagen-about-us" src="img/oil-price_6428610.png" alt="imgen-abaut-us">
+                <div class="contenido-textos">
+                    <h3><span>1</span>Planteamiento del Problema</h3>
+                    <p>Aplicar herramientas estadísticas y de Machine Learning para analizar actividades de exploración y/o explotación de hidrocarburos en Brasil mediante herramientas computacionales</p>
+                    <a href="https://www.kaggle.com/datasets/dtommasini/oil-gas-wells-brazil" target="_blank" class="dataset-box">Dataset</a>
+
+                    <h3><span>2</span>Objetivo General</h3>
+                    <p>Aplicar herramientas estadísticas y de Machine Learning para analizar actividades de exploración y/o explotación de hidrocarburos en Brasil mediante herramientas computacionales</p>
+
+                    <h3><span>3</span>Objetivo Especifico</h3>
+                    <p><strong>1.</strong>Conocer la situación actual sobre la exploración y explotación de hidrocarburos en Brasil.</p>
+                    <p><strong>2.</strong>Emplear un modelo de probabilidad para conclusiones de la exploración y explotación.</p>
+                    <p><strong>3.</strong>Deducir relaciones entre variables para realizar estimaciones.</p>
+
+                    <video muted autoplay loop>
+                        <source src="video/606824-cities-city-3840x2160_RGiVdQ2Y.mp4" type="video/mp4">
+                    </video>
+                    <div class="capa"></div>
+                </div>
+            </div>
+        </section>
+        <section class="mapa-ubicacion">
+            <div class="lado-izquierdo">
+                <h1 class="efecto-entrada">Mapa de Ubicacion</h1>
+                <a href="https://drive.google.com/file/d/1uCnNk0kce1kmHP1u9RcKJM4tA_cr8r5K/view?usp=sharing" class="btn-mapa" target="_blank">
+                    MAPA DE UBICACION EN PDF
+                </a>
+            </div>
+
+            <div class="lado-derecho">
+                <img src="img/WhatsApp Image 2025-12-11 at 2.34.45 PM.jpeg" alt="Mapa de Ubicacion">
+            </div>
+        </section>
+
+        
+        <section id="descriptiva" class="pagina">
+            <h1>Estadistica Descriptiva</h1>
+            <p></p>
+        </section>
+    </main> 
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    });
+
+    document.querySelectorAll(".efecto-entrada").forEach(el => observer.observe(el));
+});
+</script>
+<script>
+document.querySelectorAll(".menu-link").forEach(link => {
+    link.addEventListener("click", function(e) {
+        e.preventDefault();
+
+        const destino = this.getAttribute("href").substring(1);
+
+        // OCULTAR TODAS LAS SECCIONES DEL MAIN
+        document.querySelectorAll("main > section").forEach(sec => {
+            sec.style.display = "none";
+        });
+
+        // MOSTRAR LA SECCIÓN ELEGIDA
+        const pagina = document.getElementById(destino);
+        if (pagina) pagina.style.display = "block";
+
+        // OCULTAR O MOSTRAR EL HEADER PRINCIPAL
+        const headerText = document.querySelector(".textos-header");
+        if (destino === "inicio") {
+            headerText.style.display = "block";
+        } else {
+            headerText.style.display = "none";
+        }
+
+        // ACTIVAR EN MENÚ
+        document.querySelectorAll(".menu-link").forEach(l => l.classList.remove("activo"));
+        this.classList.add("activo");
+    });
+});
+</script>
+
+</body>
+</html>
